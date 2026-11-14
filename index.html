@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Information Management System</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="auth" id="authBox">
+  <h3 style="margin:0 0 4px; text-align:center;">La Conception College</h3>
+  <p style="margin:0 0 12px; text-align:center; font-size:12px; color:#555;">Student Information Management System</p>
+  <div class="tabs">
+    <button type="button" id="bLoginTab">Login</button>
+    <button type="button" id="bRegTab" class="off">Create Account</button>
+  </div>
+  <div id="amsg"></div>
+  <div id="vLogin">
+    <input type="text" id="lUser" placeholder="Username or Student ID">
+    <input type="password" id="lPass" placeholder="Password">
+    <button type="button" id="btnDoLogin" style="width:100%;">Login</button>
+    <p style="font-size:11px; color:#555; margin-top:8px;">Admin: Gabriel / 123456 | Student: 20241762 / 1234</p>
+  </div>
+  <div id="vReg" class="hide">
+    <input type="text" id="rName" placeholder="Full Name">
+    <input type="text" id="rUser" placeholder="Create Username">
+    <input type="password" id="rPass" placeholder="Create Password (min. 6 chars)">
+    <button type="button" id="btnDoReg" style="width:100%;">Create Account</button>
+  </div>
+</div>
+
+<div class="box hide" id="mainBox">
+  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap;">
+    <h3 style="margin:0;">Student Information Management System</h3>
+    <div>
+      <span id="uLabel" style="font-size:13px; font-weight:bold;"></span>
+      <button type="button" class="btn-del" id="btnDoLogout">Logout</button>
+    </div>
+  </div>
+  <div id="msg"></div>
+  <input type="text" id="sid" placeholder="Student ID (e.g. 20241762)">
+  <input type="text" id="sname" placeholder="Full Name">
+  <input type="text" id="scourse" placeholder="Course (e.g. BSIS 2A)">
+  <input type="number" id="sgwa" step="0.01" placeholder="GWA (1.00 - 5.00)">
+  <input type="text" id="spass" placeholder="Student Password (default: 1234)"><br>
+  <button type="button" id="btnAdd">Add Student</button>
+  <button type="button" class="btn-warn" id="btnUpdate">Update Existing</button>
+  <hr>
+  <input type="text" id="q" placeholder="Search ID or Name"><br>
+  <button type="button" id="btnHash">Search ID (Hash Table)</button>
+  <button type="button" id="btnLinear">Search Name (Linear)</button>
+  <button type="button" id="btnSortName">Sort Name (Bubble)</button>
+  <button type="button" id="btnSortGwa">Sort GWA (Bubble)</button>
+  <button type="button" id="btnShowAll">Show All</button>
+  <table>
+    <thead><tr><th>ID</th><th>Name</th><th>Course</th><th>GWA</th><th>Action</th></tr></thead>
+    <tbody id="tbody"></tbody>
+  </table>
+  <h4>Activity History (Stack - LIFO)</h4>
+  <button type="button" id="btnUndo">Undo Last Delete (Pop)</button>
+  <div class="log" id="log"></div>
+</div>
+
+<div class="box hide" id="studentBox">
+  <div style="display:flex; justify-content:space-between; align-items:center;">
+    <h3 style="margin:0;">Student Portal</h3>
+    <button type="button" class="btn-del" id="btnStuLogout">Logout</button>
+  </div>
+  <hr>
+  <div class="notif">
+    <b>Notifications:</b>
+    <ul id="stuNotif" style="margin:5px 0; padding-left:18px; font-size:13px;"></ul>
+  </div>
+  <p><b>Student ID:</b> <span id="stId"></span></p>
+  <p><b>Full Name:</b> <span id="stName"></span></p>
+  <p><b>Course:</b> <span id="stCourse"></span></p>
+  <p><b>Current GWA:</b> <span id="stGwa" style="color:#0056b3; font-weight:bold;"></span></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
